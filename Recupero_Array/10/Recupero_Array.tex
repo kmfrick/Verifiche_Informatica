@@ -1,0 +1,113 @@
+\documentclass[a4paper, 11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{ccicons}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[utf8]{inputenc}
+\usepackage[autostyle=false, style=english]{csquotes}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{relsize}
+\usepackage{parskip}
+\usepackage{titling}
+\pagestyle{plain}
+\graphicspath{{./images/}}
+\MakeOuterQuote{"}
+\setlength{\columnseprule}{.4pt}
+\renewcommand{\solutiontitle}{\noindent\textbf{R:}\enspace}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\renewcommand{\familydefault}{\sfdefault}
+\title{Verifica di Informatica - Recupero Array - Compito A}
+\author{ITIS Aldini-Valeriani - Classe 3EIN}
+\date{25 febbraio 2021}
+\begin{document}
+\maketitle
+\begin{center}\fbox{\fbox{\parbox{5.5in}{
+
+		\centering
+		
+		Si consegni su Classroom \textbf{un solo file} con \textbf{nome nella forma} \texttt{Cognome\_Nome\_2021-02-25\_CompitoA.cpp}.
+
+}}}
+
+\end{center}
+%\vspace{1cm}
+%Nome: \enspace \hrulefill
+\vspace{1em}
+
+\section*{Problema}
+
+Il birrificio Morroni sta intensificando la produzione di birra artigianale in modo da poter più efficientemente servire un mercato in rapida espansione.
+
+Per ottimizzare il parco macchinari dell'azienda è necessario un accurato inventario delle tipologie di birra prodotte in grado di interfacciarsi con l'ERP utilizzato dal reparto produzione.
+In qualità di \emph{junior software engineer} presso Morroni Srl ti è richiesto di realizzare tale software.
+
+La manager del dipartimento di Servizi Informatici del birrificio specifica che ogni birra prodotta è identificata da un codice numerico non negativo, da una \emph{tipologia} e da una \emph{gradazione alcolica}.
+Il codice numerico identifica la posizione all'interno del database dell'azienda, implementato come un array statico. 
+La tipologia è un numero intero, mentre la gradazione alcolica un numero con la virgola.
+Le birre \emph{lager} sono identificate dal codice 100, le \emph{stout} dal codice 101, le \emph{India Pale Ale (IPA)} dal codice 102 e le \emph{bock} dal codice 103.
+
+Il programma dovrà essere realizzato nel linguaggio C++, presentare un'interfaccia da linea di comando e assolvere ai \textit{requisiti funzionali} indicati di séguito.
+
+\begin{questions}
+	\question Leggere da tastiera le tipologie e le gradazioni delle birre. (3 punti)
+	\question Calcolare la gradazione alcolica massima $V_{max}$ e stamparla a schermo, identificando anche la tipologia di birra corrispondente. (2 punti)
+	\question Calcolare la gradazione alcolica media $V_{bock}$ tra le birre \emph{bock}. (3 punti)
+	\question Calcolare il \emph{prezzo} di ogni birra secondo la seguente regola: per tutte le birre tranne le \emph{stout} il prezzo a bottiglia è $\frac{1}{5}$ della gradazione alcolica; per le \emph{stout} il prezzo a bottiglia è $\frac{1}{3}$ della gradazione alcolica. (2 punti)
+\end{questions}
+
+Un esempio di esecuzione del software è mostrato nella sezione seguente. 
+Le linee che iniziano con il carattere \texttt{>} rappresentano l'input degli utenti.
+Chiaramente, l'interfaccia mostrata rappresenta un mero \textit{mock-up} esemplificativo e non è assolutamente vincolante. 
+
+Infine, la manager si raccomanda di scrivere codice pulito, funzionale e ben indentato, nel quale sia chiaro lo scopo e il funzionamento di ogni riga.
+\pagebreak
+\maketitle
+\section*{Esempio di esecuzione}
+
+\begin{verbatim}
+
+Benvenuto/a nel birrificio Morroni! 
+
+Quanti sono le birre da elaborare?
+> 4
+
+Inserire la tipologia della birra 0.
+> 101
+Inserire la gradazione della birra 0.
+> 11.2
+
+Inserire la tipologia della birra 1.
+> 100
+Inserire la gradazione della birra 1.
+> 4.7
+
+Inserire la tipologia della birra 2.
+> 103
+Inserire la gradazione della birra 2.
+> 8.1
+
+Inserire la tipologia della birra 3.
+> 103
+Inserire la gradazione della birra 3.
+> 7.9
+
+La gradazione alcolica massima è 11.2, per una birra di tipologia 101.
+
+La gradazione alcolica media tra le birre bock è 8.0.
+
+Il prezzo della birra 0 è 3.73 a bottiglia.
+Il prezzo della birra 1 è 0.94 a bottiglia.
+Il prezzo della birra 2 è 1.62 a bottiglia.
+Il prezzo della birra 3 è 1.58 a bottiglia.
+
+A presto!
+\end{verbatim}
+
+
+\end{document}

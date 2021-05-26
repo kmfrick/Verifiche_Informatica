@@ -1,0 +1,115 @@
+\documentclass[a4paper, 11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{ccicons}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[utf8]{inputenc}
+\usepackage[autostyle=false, style=english]{csquotes}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{relsize}
+\usepackage{parskip}
+\usepackage{titling}
+\pagestyle{plain}
+\graphicspath{{./images/}}
+\MakeOuterQuote{"}
+\setlength{\columnseprule}{.4pt}
+\renewcommand{\solutiontitle}{\noindent\textbf{R:}\enspace}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\title{Verifica di Informatica - Array - Compito B}
+\author{ITIS Aldini-Valeriani - Classe 3EIN}
+\date{26 gennaio 2021}
+\begin{document}
+\maketitle
+\begin{center}\fbox{\fbox{\parbox{5.5in}{
+
+		\centering
+
+	Si consegni su Classroom \textbf{un solo file} con \textbf{nome nella forma} \texttt{Nome\_Cognome\_2021-01-26\_CompitoB.cpp}.
+
+
+
+}}}
+
+\end{center}
+%\vspace{1cm}
+%Nome: \enspace \hrulefill
+\vspace{1em}
+
+\section*{Problema}
+
+L'azienda agricola BigFields è stata incaricata dal Governo della Repubblica Italiana di incrementare la produzione in modo da assicurare autosufficienza alimentare in caso di prolungata chiusura delle frontiere dovuta alla COVID-19.
+
+La nuova strategia produttiva, su consiglio della \textit{chief production officer} della BigFields, verterà su due principali capisaldi: conversione all'agricoltura estensiva e \textit{data-driven analysis} della produzione.
+
+La BigFields ha intenzione di produrre solamente quattro colture: arance, zucchine, mele e banane.
+Ognuna delle colture attualmente prodotte è identificata da un codice: 1 per le arance, 2 per le zucchine, 3 per le mele, 4 per le banane, 5 per i mandarini. 
+Inoltre, i campi troppo piccoli saranno da unire in campi più grossi.
+
+In qualità di \textit{junior software engineer} presso BigFields ti è richiesto di realizzare un software che si interfacci con il terminale della \textit{chief production officer}.
+Il programma dovrà essere realizzato nel linguaggio C++, presentare un'interfaccia da linea di comando e assolvere ai \textit{requisiti funzionali} indicati di séguito.
+
+\begin{questions}
+	\question Leggere da tastiera le metrature e le tipologie di colture. (1 punto)
+	\question Eliminare tutte le colture di mandarini. Sono praticamente delle arance, ma più piccole! (2.5 punti)
+	\question Calcolare la metratura più alta $P_{max}$ e la metratura media $\bar{P}$, da fornire ai \textit{data analyst} della BigFields affinché possano effettuare analisi di mercato e ottimizzare la produzione e la vendita.  (2.5 punti)
+	\question Calcolare la metratura  minima $P_{min}$ ed eliminare tutti i campi con metratura  pari o inferiore a $2 \cdot P_{min}$, in accordo con la politica di agricoltura estensiva. (4 punti)
+\end{questions}
+
+La manager del dipartimento di Servizi Informatici della BigFields specifica che ogni campo è identificato da un codice numerico non negativo, ma che non è importante che il software mantenga gli stessi codici. 
+Chiaramente, il software non deve cancellare campi che devono essere mantenuti, o inventarne di nuovi!
+
+Un esempio di esecuzione del software è mostrato nella sezione seguente. 
+Le linee che iniziano con il carattere \texttt{>} rappresentano l'input degli utenti.
+Chiaramente, l'interfaccia mostrata rappresenta un mero \textit{mock-up} esemplificativo e non è assolutamente vincolante. 
+
+Infine, la manager si raccomanda di scrivere codice pulito, funzionale e ben indentato, nel quale sia chiaro lo scopo e il funzionamento di ogni riga.
+\pagebreak
+\maketitle
+\section*{Esempio di esecuzione}
+
+\begin{verbatim}
+
+Benvenuto/a in BigFields! 
+
+Quanti sono i campi da elaborare?
+> 4
+
+Inserire la tipologia del campo 0.
+> 5
+Inserire la metratura (in mq) del campo 0.
+> 400
+
+
+Inserire la tipologia del campo 1.
+> 1
+Inserire la metratura (in mq) del campo 1.
+> 150.75
+
+
+Inserire la tipologia del campo 2.
+> 2
+Inserire la metratura (in mq) del campo 2.
+> 100.84
+
+Inserire la tipologia del campo 3.
+> 1
+Inserire la metratura (in mq) del campo 3.
+> 72.45
+
+La metratura massima è 400 e la metratura media è 181.01.
+
+Dopo l'elaborazione dei campi, ne rimangono coltivati 1.
+
+Campo 0: coltura 1, metratura 150.75.
+
+A presto!
+\end{verbatim}
+
+
+\end{document}

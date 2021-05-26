@@ -1,0 +1,112 @@
+\documentclass[a4paper, 11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{ccicons}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[utf8]{inputenc}
+\usepackage[autostyle=false, style=english]{csquotes}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{relsize}
+\usepackage{parskip}
+\usepackage{titling}
+\pagestyle{plain}
+\graphicspath{{./images/}}
+\MakeOuterQuote{"}
+\setlength{\columnseprule}{.4pt}
+\renewcommand{\solutiontitle}{\noindent\textbf{R:}\enspace}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\title{Verifica di Informatica - Array - Compito C}
+\author{ITIS Aldini-Valeriani - Classe 3EIN}
+\date{26 gennaio 2021}
+\begin{document}
+\maketitle
+\begin{center}\fbox{\fbox{\parbox{5.5in}{
+
+		\centering
+	
+	Si consegni su Classroom \textbf{un solo file} con \textbf{nome nella forma} \texttt{Nome\_Cognome\_2021-01-26\_CompitoC.cpp}.
+
+
+}}}
+
+\end{center}
+%\vspace{1cm}
+%Nome: \enspace \hrulefill
+\vspace{1em}
+
+\section*{Problema}
+
+La concessionaria FastCars è stata sommersa di ordini a causa dell'elevato numero di rider che hanno preso servizio durante la pandemia di COVID-19.
+
+Per far fronte all'elevato numero di ordini la FastCars ha deciso di concentrare la produzione su veicoli potenti ed eseguire un'analisi \textit{data-driven} della produzione.
+
+La FastCars offre quattro tipi di veicoli: motorini sbloccati\footnote{Non fatelo a casa!}, motocicli, automobili e camion.
+Ognuno di questi tipi è identificato da un codice: 1 per i motorini, 2 per i motocicli, 3 per le automobili e 4 per i camion.
+
+In qualità di \textit{junior software engineer} presso FastCars ti è richiesto di realizzare un software che si interfacci con il sito italiano della compagnia.
+Il programma dovrà essere realizzato nel linguaggio C++, presentare un'interfaccia da linea di comando e assolvere ai \textit{requisiti funzionali} indicati di séguito.
+
+\begin{questions}
+	\question Leggere da tastiera le cilindrate e le tipologie di veicoli. (1 punto)
+	\question Eliminare tutti i camion. Va bene, ci sono tanti ordini, ma non \textit{così} tanti! (2.5 punti)
+	\question Calcolare la cilindrata massima $P_{max}$ e la cilindrata media $\bar{P}$, da fornire ai \textit{data analyst} della FastCars affinché possano effettuare le loro analisi di produzione.  (2.5 punti)
+	\question Calcolare la cilindrata minima $P_{min}$ ed eliminare tutti i veicoli con cilindrata pari o inferiore a $2 \cdot P_{min}$, in accordo con la politica della FastCars. (4 punti)
+\end{questions}
+
+La manager del dipartimento di Servizi Informatici della FastCars specifica che ogni veicolo è identificato da un codice numerico non negativo, ma che non è importante che il software mantenga gli stessi codici. 
+Chiaramente, il software non deve cancellare veicoli che devono essere venduti, o inventarne di nuovi!
+
+Un esempio di esecuzione del software è mostrato nella sezione seguente. 
+Le linee che iniziano con il carattere \texttt{>} rappresentano l'input degli utenti.
+Chiaramente, l'interfaccia mostrata rappresenta un mero \textit{mock-up} esemplificativo e non è assolutamente vincolante. 
+
+Infine, la manager si raccomanda di scrivere codice pulito, funzionale e ben indentato, nel quale sia chiaro lo scopo e il funzionamento di ogni riga.
+
+\pagebreak
+\maketitle
+\section*{Esempio di esecuzione}
+
+\begin{verbatim}
+
+Benvenuto/a in FastCars! 
+
+Quanti sono i veicoli da elaborare?
+> 4
+
+Inserire la tipologia del veicolo 0.
+> 2
+Inserire la cilindrata del veicolo 0.
+> 130.50
+
+Inserire la tipologia del veicolo 1.
+> 1
+Inserire la cilindrata del veicolo 1.
+> 190.50
+
+Inserire la tipologia del veicolo 2.
+> 4
+Inserire la cilindrata del veicolo 2.
+> 70.50
+
+Inserire la tipologia del veicolo 3.
+> 4
+Inserire la cilindrata del veicolo 3.
+> 590.50
+
+La cilindrata massima è 590.50 e la cilindrata media è 245.5.
+
+Dopo l'elaborazione dei veicoli, ne rimangono disponibili 1.
+
+Veicolo 0: tipologia 1, cilindrata 190.50.
+
+A presto!
+\end{verbatim}
+
+
+\end{document}

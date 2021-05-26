@@ -1,0 +1,154 @@
+\documentclass[a4paper, 11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{ccicons}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[utf8]{inputenc}
+\usepackage[autostyle=false, style=english]{csquotes}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{relsize}
+\usepackage{parskip}
+\usepackage{titling}
+\pagestyle{plain}
+\graphicspath{{./images/}}
+\MakeOuterQuote{"}
+\setlength{\columnseprule}{.4pt}
+\renewcommand{\solutiontitle}{\noindent\textbf{R:}\enspace}
+\renewcommand{\familydefault}{\sfdefault}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\title{Verifica di Informatica - Strutture}
+\author{ITIS Aldini-Valeriani - Classe 3EIN}
+\date{25 maggio 2021}
+\begin{document}
+\maketitle
+\begin{center}\fbox{\fbox{\parbox{5.5in}{
+
+		\centering
+		
+		Si consegni su Classroom \textbf{un solo file} con \textbf{nome nella forma} \texttt{Nome\_Cognome\_2021-05-25.cpp}.
+
+}}}
+
+\end{center}
+%\vspace{1cm}
+%Nome: \enspace \hrulefill
+\vspace{1em}
+
+\section*{Problema}
+
+La campagna vaccinale italiana contro la Covid-19, pur con i suoi intoppi, sta accelerando. 
+Il Governo Italiano ha istituito una \emph{task force} di lavoratori e lavoratrici dell'informatica per ottimizzare lo smistamento e la somministrazione dei vaccini.
+Nei documenti di progetto si sottolina che funzionalità prioritarie dell'infrastruttura informatica da realizzare sono l'accesso rapido ai dati dei vaccini e dei punti vaccinali.
+Questo tipo di dati sono rappresentate da opportune \emph{strutture dati} definite come segue.
+
+La struttura dati che rappresenta un \emph{lotto di vaccini} contiene i seguenti campi:
+\begin{itemize}
+	\item casa produttrice (e.g. AstraZeneca, Reithera, Moderna)
+	\item numero di dosi di vaccino nel lotto
+	\item data di produzione (nel formato GG/MM/AAAA)
+\end{itemize}
+
+La struttura dati che rappresenta un \emph{punto vaccinale} contiene i seguenti campi:
+\begin{itemize}
+	\item tipo di vaccino somministrato (si presuma, per semplicità, che ogni punto vaccinale somministri un solo tipo di vaccino)
+	\item una stima del numero di vaccini richiesti
+	\item la sigla della provincia in cui è sito (e.g. BO, RM, VV)
+	\item l'indirizzo completo (e.g. "Via Sandro Bassanelli 11, Bologna")
+\end{itemize}
+
+Si implementino:
+\begin{itemize}
+	\item le strutture dati che rappresentano lotti di vaccini e punti vaccinali (2 punti)
+	\item una funzione che legga i dati relativi a un array di lotti di vaccini, passato come argomento (2 punti)
+	\item una funzione che legga i dati relativi a un array di punti vaccinali, passato come argomento (2 punti)
+	\item una funzione che ordini un array di lotti vaccinali in ordine decrescente in base al numero di dosi contenute (2 punti)
+		\begin{itemize}
+			\item \emph{Indicazioni: } Se non si riesce a implementare questa funzione, si utilizzi quella fornita nel file allegato. 
+		\end{itemize}
+	\item una funzione che, ricevuto come argomento un array di lotti di vaccini, restituisca i dati di ogni lotto prodotto da una casa produttrice passata come argomento, ordinati in ordine decrescente in base al numero di dosi contenute (2 punti)
+		\begin{itemize}
+			\item \emph{Indicazioni:} Per filtrare i dati in base alla casa produttrice, si cicli sull'array di strutture dati in oggetto e si utilizzi una selezione (un costrutto \texttt{if}) per stampare, o comunque considerare, solamente i lotti nei quali il campo \emph{``casa produttrice''} corrisponde alla stringa passata come argomento.
+Per restituire dati filtrati ordinati è sufficiente chiamare il filtro sull'array ordinato, senza dover creare un nuovo array e filtrarlo. 
+		\end{itemize}
+	\item una funzione che calcoli lo scarto tra vaccini richiesti prodotti da una certa casa e i vaccini effettivamente disponibili (2 punti)
+		\begin{itemize}
+			\item \emph{Indicazioni:} v. punto precedente
+		\end{itemize}
+	\item una \texttt{main()} di test che chiami queste funzioni su un campione ridotto, e.g. con 2 lotti di vaccini e 2 punti vaccinali (1 punto)
+\end{itemize}
+
+Un esempio di esecuzione del software è mostrato nella sezione seguente.
+Le linee che iniziano con il carattere \texttt{>} rappresentano l'input degli utenti.
+Chiaramente, l'interfaccia mostrata rappresenta un mero \textit{mock-up} esemplificativo e non è assolutamente vincolante.
+
+La dirigente della task force si raccomanda di scrivere codice pulito, funzionale e ben indentato, nel quale sia chiaro lo scopo e il funzionamento di ogni riga.
+
+\begin{verbatim}
+Benvenut* nel software per la gestione della campagna vaccinale italiana!
+
+Inserire il numero di lotti di vaccini.
+> 3
+Inserire la casa produttrice del lotto 0.
+> Reithera
+Inserire il numero di vaccini nel lotto 0.
+> 127
+Inserire la data di produzione del lotto 0.
+> 01/05/2021
+Inserire la casa produttrice del lotto 1.
+> AstraZeneca
+Inserire il numero di vaccini nel lotto 1.
+> 254
+Inserire la data di produzione del lotto 1.
+> 15/06/2021
+Inserire la casa produttrice del lotto 2.
+> Reithera
+Inserire il numero di vaccini nel lotto 2.
+> 100
+Inserire la data di produzione del lotto 2.
+> 21/04/2021
+
+Inserire il numero di punti vaccinali. 
+> 2
+Inserire la casa produttrice dei vaccini somministrati dal punto 0. 
+> Reithera
+Inserire una stima del numero di vaccini richiesti dal punto 0.
+> 200
+Inserire la sigla della provincia nella quale è sito il punto 0.
+> BO
+Inserire l'indirizzo del punto 0.
+> Via Lenin 23, Bologna
+Inserire la casa produttrice dei vaccini somministrati dal punto 0. 
+> Pfizer
+Inserire una stima del numero di vaccini richiesti dal punto 0.
+> 100
+Inserire la sigla della provincia nella quale è sito il punto 0.
+> MI
+Inserire l'indirizzo del punto 0.
+> Via Stalingrado 32, Milano
+
+L'array di vaccini ordinato è:
+0: {AstraZeneca, 254, 15/06/2021}
+1: {Reithera, 127, 01/05/2021}
+2: {Reithera, 100, 21/04/2021}
+
+Inserire la casa produttrice per la chiamata di test al filtro:
+> Reithera
+Risultato:
+0: {Reithera, 127, 01/05/2021}
+1: {Reithera, 100, 21/04/2021}
+
+Inserire la casa produttrice per il calcolo dello scarto:
+> Reithera
+Risultato:
+Sono richiesti 200 vaccini Reithera. 227 vaccini sono disponibili.
+Scarto: 27
+
+A presto! Andrà tutto bene :)
+\end{verbatim}
+\end{document}

@@ -1,0 +1,186 @@
+\documentclass[a4paper, 11pt]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[italian]{babel}
+\usepackage{ccicons}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[utf8]{inputenc}
+\usepackage[autostyle=false, style=english]{csquotes}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{relsize}
+\usepackage{parskip}
+\usepackage{titling}
+\pagestyle{plain}
+\graphicspath{{./images/}}
+\MakeOuterQuote{"}
+\setlength{\columnseprule}{.4pt}
+\renewcommand{\solutiontitle}{\noindent\textbf{R:}\enspace}
+\renewcommand{\familydefault}{\sfdefault}
+\def\dbar{{\mathchar'26\mkern-12mu d}}
+\title{Verifica di Informatica - Funzioni}
+\author{ITIS Aldini-Valeriani - Classe 3EIN}
+\date{15 aprile 2021}
+\begin{document}
+\maketitle
+\begin{center}\fbox{\fbox{\parbox{5.5in}{
+
+		\centering
+		
+		Si consegni su Classroom \textbf{un solo file} con \textbf{nome nella forma} \texttt{Nome\_Cognome\_2021-04-15.cpp}.
+
+}}}
+
+\end{center}
+%\vspace{1cm}
+%Nome: \enspace \hrulefill
+\vspace{1em}
+
+\section*{Problema}
+
+L'azienda di consulenza informatica GrandiSpioni è interessata ad ampliare la propria offerta di prodotti di \emph{consumer analytics} integrando nel proprio prodotto di punta, SpiaLaSpesa, una API (\emph{Application Programming Interface}) chiamabile mediante RPC (\emph{Remote Procedure Call}). 
+
+SpiaLaSpesa permette, tra le altre cose, di condurre indagini di mercato suddividendo in categorie il pubblico consumatore e tenendo traccia del consumo di più prodotti da parte delle varie categorie. 
+Un esempio di possibile struttura del \emph{database} della GrandiSpioni è mostrato nella tabella seguente, nella quale le celle rappresentano le unità di prodotto vendute a ogni categoria e dalla quale appare chiara la correlazione tra altezza delle persone e interessi in àmbito artistico, nonché tra età e interesse nella schematizzazione. 
+
+\begin{table}[h!]
+
+	\centering
+
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+                            & \textbf{Alte 18-25} & \textbf{Basse 18-25} & \textbf{Alte 26-40} & \textbf{Basse 26-40} \\ \hline
+\textbf{Libri}              & 8                           & 33                           & 52                          & 98                           \\ \hline
+\textbf{Strumenti musicali} & 87                          & 17                           & 9                           & 90                           \\ \hline
+\textbf{Lavagne}            & 29                          & 34                           & 91                          & 61                           \\ \hline
+\end{tabular}
+\end{table}
+
+In qualità di \textit{junior software engineer} presso GrandiSpioni ti è richiesto di realizzare una serie di funzioni che assolvano ai requisiti e del cui \emph{deployment} sotto forma di \emph{endpoint} si occuperà il \emph{team DevOps}. 
+Per verificare la corretta esecuzione delle funzioni implementate  ti è richiesto di realizzare una \texttt{main} di esempio che le chiami e le testi su dei dati inseriti da riga di comando.
+Il programma di verifica dovrà essere realizzato nel linguaggio C++, implementare una \texttt{main} di prova che presenti un'interfaccia da linea di comando e assolvere ai requisiti indicati di séguito.
+
+\begin{questions}
+	\question esporre una funzione \texttt{getIncomeFromProductCategory()} che, presi in input i dati di vendita, le categorie di prodotto e di clientela, i prezzi di ogni prodotto e una categoria di prodotto, sommi le unità vendute del prodotto indicato, le moltiplichi per il prezzo relativo e restituisca gli incassi provenienti da quel prodotto (2 punti)
+	\question esporre una funzione \texttt{getIncomeFromConsumerCategory()} che, presi in input i dati di vendita, le categorie di prodotto e di clientela, i prezzi di ogni prodotto e una categoria di clientela, moltiplichi le unità di ogni prodotto vendute alla categoria di clientela indicata per il prezzo relativo, sommi i risultati e restituisca gli incassi riferibii alla categoria di clientela indicata (2 punti)
+	\question esporre una funzione \texttt{getProductIncome()} che si serva della  \texttt{getIncomeFromProductCategory()} per riempire un array in modo che, dopo l'esecuzione della funzione, contenga gli incassi riferibili a tutte le diverse categorie di prodotto (2 punti)
+	\question esporre una funzione \texttt{getConsumerIncome()} che si serva della  \texttt{getIncomeFromConsumerCategory()} per riempire un array in modo che, dopo l'esecuzione della funzione, contenga gli incassi riferibili a tutte le diverse categorie di pubblico consumatore (2 punti)
+	\question implementare una funzione \texttt{sortAscending()} che ordini un array in ordine crescente (2 punti)
+	\question esporre due funzioni \texttt{getSortedProductIncome()} e \texttt{getSortedConsumerIncome()}, che riempiano un array passato come argomento in modo che contenga, \emph{ordinati}, i dati restituiti da \texttt{getProductIncome()}  e  \texttt{getConsumerIncome()}. Non è necessario mantenere l'associazione tra valori e categorie, ma solo restituire l'array ordinato. (2 punti)
+\end{questions}
+
+La manager del dipartimento di Servizi Informatici della GrandiSpioni indica che le categorie di prodotto e di clientela, così come le dimensioni del database, possono essere fissate nel codice o esternalizzate e richieste in input. 
+In quest'ultimo caso, come compensazione per il lavoro straordinario, è previsto un bonus di 1 punto.
+La manager ricorda anche che, nel caso vi siano problemi l'implementazione della \texttt{sortAscending()}, è possibile ordinare un array \texttt{arr} di dimensione \texttt{n} aggiungendo all'intestazione del codice la direttiva \texttt{\#include <algorithm>} e servendosi della funzione \texttt{sort(arr, arr + n)}.
+
+Un esempio di esecuzione del software è mostrato nella sezione seguente. 
+Le linee che iniziano con il carattere \texttt{>} rappresentano l'input degli utenti.
+Chiaramente, l'interfaccia mostrata rappresenta un mero \textit{mock-up} esemplificativo e non è assolutamente vincolante. 
+
+Infine, la manager si raccomanda di scrivere codice pulito, funzionale e ben indentato, nel quale sia chiaro lo scopo e il funzionamento di ogni riga.
+\section*{Esempio di esecuzione}
+
+\begin{verbatim}
+Benvenuto/a in GrandiSpioni!
+
+Quante categorie di prodotto sono previste? 
+> 3
+
+Inserire la categoria di prodotto 0.
+> Libri
+Inserire il prezzo del prodotto 0.
+> 2
+Inserire la categoria di prodotto 1.
+> Strumenti
+Inserire il prezzo del prodotto 1.
+> 20
+Inserire la categoria di prodotto 2.
+> Lavagne
+Inserire il prezzo del prodotto 2.
+> 10
+
+Quante categorie di pubblico consumatore sono previste? 
+> 4
+
+Inserire la categoria di pubblico 0.
+> Basse1825
+Inserire la categoria di pubblico 1.
+> Alte1825
+Inserire la categoria di pubblico 2.
+> Basse2640
+Inserire la categoria di pubblico 3.
+> Alte2640
+
+Quante unità di prodotto Libri sono state vendute 
+alla categoria Basse1825?
+> 8
+Quante unità di prodotto Libri sono state vendute 
+alla categoria Alte1825?
+> 33
+Quante unità di prodotto Libri sono state vendute 
+alla categoria Basse2640?
+> 52
+Quante unità di prodotto Libri sono state vendute 
+alla categoria Alte2640?
+> 98
+
+Quante unità di prodotto Strumenti sono state vendute 
+alla categoria Basse1825?
+> 87
+Quante unità di prodotto Strumenti sono state vendute 
+alla categoria Alte1825?
+> 17
+Quante unità di prodotto Strumenti sono state vendute 
+alla categoria Basse2640?
+> 9
+Quante unità di prodotto Strumenti sono state vendute 
+alla categoria Alte2640?
+> 90
+
+Quante unità di prodotto Lavagne sono state vendute 
+alla categoria Basse1825?
+> 29
+Quante unità di prodotto Lavagne sono state vendute 
+alla categoria Alte1825?
+> 34
+Quante unità di prodotto Lavagne sono state vendute 
+alla categoria Basse2640?
+> 91
+Quante unità di prodotto Lavagne sono state vendute 
+alla categoria Alte2640?
+> 61
+
+Inserire la categoria di prodotto per la chiamata di test 
+alla getIncomeFromProductCategory().
+0 = Libri; 1 = Strumenti; 2 = Lavagne
+> 0
+Alla categoria Libri è riferibile un incasso di 382.
+
+Inserire la categoria di pubblico consumatore per la chiamata di test 
+alla getIncomeFromConsumerCategory().
+0 = Basse1825; 1 = Alte1825; 2 = Basse2640; 3 = Alte2640
+> 2
+Alla categoria Basse2640 è riferibile un incasso di 1194.
+
+Risultato della chiamata di test alla getProductIncome():
+{382, 4060, 2150}
+
+Risultato della chiamata di test alla getConsumerIncome():
+{2046, 746, 1194, 2606}
+
+Risultato della chiamata di test alla getSortedProductIncome():
+{382, 2150, 4060}
+
+Risultato della chiamata di test alla getSortedConsumerIncome():
+{746, 1194, 2046, 2606}
+
+A presto!
+
+\end{verbatim}
+
+
+\end{document}
